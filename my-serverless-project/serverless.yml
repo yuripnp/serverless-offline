@@ -1,0 +1,17 @@
+service: my-serverless-project
+frameworkVersion: "3"
+
+plugins:
+- serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+
+functions:
+  putData:
+    handler: src/handler.putData
+    events:
+      - http:
+          path: data
+          method: put
